@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Astrological Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Adding Galactic Cluster</h1>
+        <hr>
+        <h2></h2>
+        <form action="#" th:action="@{/saveGalacticC}" th:object="${galacticC}" method="POST">
+            <input type="text" th:field="*{galacticCName}" placeholder=" Galactic Cluster Name" class="form-control mb-4 col-4">
+
+            <input type="text" th:field="*{galacticCDescription}" placeholder="Description" class="form-control mb-4 col-4">
+            
+             <div class="form-group search" >
+              <div class="container">
+	            <div class="row">
+	              <select name="galacticSC" class="form-control select2 form-control mb-4 col-4" >
+	               <option th:each="galacticSC : ${galacticSC}" th:value="${galacticSC.galacticSCId}" th:utext="${galacticSC.galacticSCName}"/> 
+	              </select>
+	            </div>
+			    </div>
+               </div>
+            
+            <button type="submit" class="btn btn-info col-2"> Save Galactic Cluster</button>
+        </form>
+
+        <hr>
+
+        <a th:href="@{/}"> Back to Home</a>
+    </div>
+</body>
+
+</html>
